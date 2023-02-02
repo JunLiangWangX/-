@@ -1,0 +1,29 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      
+      - name: Publish HTML to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.SECRET }}
+          publish_dir: ./*
+          enable_jekyll: false
+          
+      - name: deploy file to server
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4 
+        with:  
+          username: 'root'
+          server: '${{ secrets.SERVER_IP }}'
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} # 引用之前创建好的secret
+          local_path: './*'  # 对应我们项目build的文件夹路径
+          remote_path: '/home/www/htdocs/wangjunliang/Madman-Diary'
