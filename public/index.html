@@ -3,7 +3,7 @@
  * @Author: JunLiangWang
  * @Date: 2023-02-02 15:42:58
  * @LastEditors: JunLiangWang
- * @LastEditTime: 2023-02-05 17:13:26
+ * @LastEditTime: 2023-02-05 17:23:44
 -->
 <!DOCTYPE html>
 <html>
@@ -25,6 +25,7 @@
         body {
             font-family: BuXuCiXing;
             padding: 0 220px;
+            transition: all 0.3s ease-out;
         }
 
         .title {
@@ -48,6 +49,22 @@
             font-size: 20px;
             text-align: center;
         }
+
+        @media screen and (max-width: 1000px) {
+            body {
+                 padding: 0 100px;
+            }
+        }
+        @media screen and (max-width: 700px) {
+            body {
+                 padding: 0 50px;
+            }
+        }
+        @media screen and (max-width: 500px) {
+            body {
+                 padding: 0 20px;
+            }
+        }
     </style><!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P5CYMJ8S8M"></script>
     <script>
@@ -60,6 +77,7 @@
 
         gtag('config', 'G-P5CYMJ8S8M');
     </script>
+
 </head>
 
 <body>
